@@ -24,10 +24,16 @@ View(bio)
 
 ```
 
+###Example bar graph for Page 1 of App
+```{r, ggplot}
 
-```{r}
+#note in the real app, this is where the selection of countries will take place.  This is not doing what I want it to do yet, but I wanted to get a start on coding.
+bio_df <- dplyr::filter(bio, Country == "Algeria" | Country == "Egypt")
 
+country_bio_graph <- ggplot(bio_df, aes(x=Country, y=Mammals), fill=variable)+
+  geom_bar(stat='identity', position='dodge')
 
+country_bio_graph
 
 ```
 
